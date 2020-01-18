@@ -20,7 +20,7 @@
                                 <a href="{{route('heart_food.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Heart Food </span> </a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Patient Details </span> </a>
+                                <a href="{{route('patient_detail.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Patient Details </span> </a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Medicine Schedual </span> </a>

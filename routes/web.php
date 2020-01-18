@@ -21,6 +21,8 @@ Route::resource('/heart_medicine','HeartMedicineController');
 
 Route::resource('/heart_food','HeartFoodController');
 
+Route::resource('/patient_detail','PatientDetailController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
