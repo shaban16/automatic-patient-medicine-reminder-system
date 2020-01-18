@@ -15,6 +15,12 @@ Route::get('/','DashboardController@index');
 
 Route::resource('/diabetic_medicine','DiabeticMedicineController');
 
+Route::resource('/diabetic_food','DiabeticFoodController');
+
+Route::resource('/heart_medicine','HeartMedicineController');
+
+Route::resource('/heart_food','HeartFoodController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -11,13 +11,13 @@
                             </li>
 
                              <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Diabetic Food </span> </a>
+                                <a href="{{route('diabetic_food.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Diabetic Food </span> </a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Heart Medicine </span> </a>
+                                <a href="{{route('heart_medicine.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Heart Medicine </span> </a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Heart Food </span> </a>
+                                <a href="{{route('heart_food.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Heart Food </span> </a>
                             </li>
                             <li>
                                 <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Patient Details </span> </a>

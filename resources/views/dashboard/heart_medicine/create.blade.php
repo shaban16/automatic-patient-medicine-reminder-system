@@ -5,7 +5,7 @@ APMRS | Create Medicine
 @endsection
 
 @section('heading')
-Adding New Diabetic Medicine
+Adding New Heart Medicine
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@ Adding New Diabetic Medicine
     <div class="col-md-8">
         <div class="card-box">
            
-            <form class="form-horizontal" role="form" action="{{ route('diabetic_medicine.store') }}" method="POST" >
+            <form class="form-horizontal" role="form" action="{{ route('heart_medicine.store') }}" method="POST" >
             	@csrf
 
                 <div class="form-group row">

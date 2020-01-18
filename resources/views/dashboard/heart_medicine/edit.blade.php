@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('title')
-APMRS | Create Medicine
+APMRS | Edit Medicine
 @endsection
 
 @section('heading')
-Adding New Diabetic Medicine
+Editing Heart Medicine
 @endsection
 
 @section('content')
@@ -14,15 +14,18 @@ Adding New Diabetic Medicine
     <div class="col-md-8">
         <div class="card-box">
            
-            <form class="form-horizontal" role="form" action="{{ route('diabetic_medicine.store') }}" method="POST" >
+            <form class="form-horizontal" role="form" action="{{ route('heart_medicine.update',$heartMedicine->id) }}" method="POST" >
             	@csrf
+
+                @method('PUT')
 
                 <div class="form-group row">
                     <label for="name" class="col-3 col-form-label">Medicine Name</label>
                     <div class="col-9">
-                        <input type="text" class="form-control" id="name" required name="name" placeholder="Enter medicine name">
+                        <input type="text" class="form-control" id="name" required name="name" placeholder="Enter medicine name" value="{{$heartMedicine->name}}">
                     </div>
-                </div>                           
+                </div>
+                             
                
                 <div class="form-group mb-0 justify-content-end row">
                     <div class="col-9">

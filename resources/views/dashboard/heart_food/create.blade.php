@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('title')
-APMRS | Create Medicine
+APMRS | Create Food
 @endsection
 
 @section('heading')
-Adding New Diabetic Medicine
+Adding New Heart Food
 @endsection
 
 @section('content')
@@ -14,13 +14,13 @@ Adding New Diabetic Medicine
     <div class="col-md-8">
         <div class="card-box">
            
-            <form class="form-horizontal" role="form" action="{{ route('diabetic_medicine.store') }}" method="POST" >
+            <form class="form-horizontal" role="form" action="{{ route('heart_food.store') }}" method="POST" >
             	@csrf
 
                 <div class="form-group row">
-                    <label for="name" class="col-3 col-form-label">Medicine Name</label>
+                    <label for="name" class="col-3 col-form-label">Food Name</label>
                     <div class="col-9">
-                        <input type="text" class="form-control" id="name" required name="name" placeholder="Enter medicine name">
+                        <input type="text" class="form-control" id="name" required name="name" placeholder="Enter food name">
                     </div>
                 </div>                           
                
