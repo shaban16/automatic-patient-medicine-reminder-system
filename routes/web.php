@@ -23,6 +23,8 @@ Route::resource('/heart_food','HeartFoodController');
 
 Route::resource('/patient_detail','PatientDetailController');
 
+Route::resource('/schedule','ScheduleController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

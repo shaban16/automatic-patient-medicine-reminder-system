@@ -23,7 +23,7 @@
                                 <a href="{{route('patient_detail.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Patient Details </span> </a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Medicine Schedual </span> </a>
+                                <a href="{{route('schedule.index') }}" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Medicine Schedule </span> </a>
                             </li>
 
 
