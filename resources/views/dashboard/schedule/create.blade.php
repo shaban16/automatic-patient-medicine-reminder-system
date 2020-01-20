@@ -33,15 +33,49 @@ Adding New Schedule
                     <label for="mobile_no" class="col-3 col-form-label">Phone Number</label>
                     <div class="col-9">
                        <select class="custom-select mt-3 form-control" name="mobile_no" required>
-                            <option selected>Select Patient Name</option>
+                            <option selected>Select phone number</option>
                               @foreach($vars['patients'] as $patient)
                               <option value="{{$patient->phone}}">{{$patient->phone}}</option>
                               @endforeach
                         </select>
                     </div>
                 </div> 
+                <div class="form-group row">
+                    <label for="mobile_no" class="col-3 col-form-label">medicine</label>
+                    <div class="col-9">
+                       <select class="custom-select mt-3 form-control" name="mobile_no" required>
+                            <option selected>Select Medicine</option>
+                              @foreach($vars['patients'] as $patient)
+                              <option value="{{$patient->medicine}}">{{$patient->medicine}}</option>
+                              @endforeach
+                        </select>
+                    </div>
+                </div> 
 
-                
+                <div class="form-group row">
+                    <label for="mobile_no" class="col-3 col-form-label">Restricted Food</label>
+                    <div class="col-9">
+                       <select class="custom-select mt-3 form-control" name="mobile_no" required>
+                            <option selected>Select Restricted Food</option>
+                              @foreach($vars['patients'] as $patient)
+                              <option value="{{$patient->food}}">{{$patient->food}}</option>
+                              @endforeach
+                        </select>
+                    </div>
+                </div> 
+                <div class="form-group row">
+                    <label for="mobile_no" class="col-3 col-form-label">medicine Time</label>
+                    <div class="col-9">
+                       <select class="custom-select mt-3 form-control" name="mobile_no" required>
+                            <option selected>Select medicine Time</option>
+                              @foreach($vars['patients'] as $patient)
+                              <option value="{{$patient->medicine}}">{{$patient->medicine}}</option>
+                              @endforeach
+                        </select>
+                    </div>
+                </div> 
+
+
 
                
                 <div class="form-group mb-0 justify-content-end row">

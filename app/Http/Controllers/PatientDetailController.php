@@ -67,7 +67,7 @@ class PatientDetailController extends Controller
      */
     public function edit(PatientDetail $patientDetail)
     {
-        //
+        return view('dashboard.patient_detail.edit',compact('patientDetail'));
     }
 
     /**
@@ -79,7 +79,9 @@ class PatientDetailController extends Controller
      */
     public function update(Request $request, PatientDetail $patientDetail)
     {
-        //
+        $patientDetail->update(['name'=>$request->name]);
+
+        return redirect()->route('patient_detail.index');
     }
 
     /**
@@ -90,6 +92,8 @@ class PatientDetailController extends Controller
      */
     public function destroy(PatientDetail $patientDetail)
     {
-        //
+        $patientDetail->delete();
+
+        return redirect()->route('patient_detail.index');
     }
 }
