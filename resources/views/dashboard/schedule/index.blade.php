@@ -35,6 +35,7 @@ Medicine Schedule
                             <th>No</th>
                             <th>Patient Name</th>
                             <th>Phone Number</th>
+                            <th>Disease Type</th>
                             <th>Medicine</th>
                             <th>Restricted Food</th>
                             <th>Medicine Time</th>
@@ -43,25 +44,28 @@ Medicine Schedule
 
                         <tbody>
 
-                           {{--  @foreach($patients as $patient)
+                            @foreach($schedules as $schedule)
                               <tr>
                                  <td>{{$loop->index + 1}}</td>
-                                 <td>{{$patient->name}}</td>
-                                 <td>{{$patient->phone}}</td>
-                                 <td>{{$patient->type}}</td>
+                                 <td>{{$schedule->patient_name}}</td>
+                                 <td>{{$schedule->mobile_no}}</td>
+                                 <td>{{$schedule->disease_type}}</td>
+                                 <td>{{$schedule->medicine_name}}</td>
+                                 <td>{{$schedule->food_restricted}}</td>
+                                 <td>{{$schedule->medicine_time}}</td>
                                  <td>
-                                    <a class="btn btn-primary " href="{{ route('patient_detail.edit',$patient->id) }}">Edit</a> 
+                                    <a class="btn btn-primary " href="{{ route('schedule.edit',$schedule->id) }}">Edit</a> 
                                     <a class="btn btn-danger m-l-10" href="#"
                                        onclick="event.preventDefault();
                                                       document.getElementById('delete-form').submit();">Delete
                                      </a> 
-                                    <form id="delete-form" action="{{route('patient_detail.destroy',$patient->id)}}" method="POST">
+                                    <form id="delete-form" action="{{route('schedule.destroy',$schedule->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                     </form>
                                 </td>
                               </tr>
-                            @endforeach --}}
+                            @endforeach
                         
                         
                         </tbody>

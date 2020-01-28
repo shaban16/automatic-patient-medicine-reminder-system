@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\DiabeticMedicine;
+use App\Food;
 use Illuminate\Http\Request;
 
-class DiabeticMedicineController extends Controller
+class FoodController extends Controller
 {
-
+    
      public function __construct()
     {
         $this->middleware('auth');
-    }
-    /**
+    }/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $medicines = DiabeticMedicine::all();
-        return view('dashboard.diabetic_medicine.index',compact('medicines'));
+        $foods=Food::all();
+        return view('dashboard.food.index',compact('foods'));
     }
 
     /**
@@ -30,7 +29,7 @@ class DiabeticMedicineController extends Controller
      */
     public function create()
     {
-        return view('dashboard.diabetic_medicine.create');
+        return view('dashboard.food.create');
     }
 
     /**
@@ -41,19 +40,20 @@ class DiabeticMedicineController extends Controller
      */
     public function store(Request $request)
     {
+        Food::create(['name'=>$request->name,
+                     'type'=>$request->type
+     ]);
 
-        DiabeticMedicine::create(['name'=>$request->name]);
-
-        return redirect()->route('diabetic_medicine.index');
+        return redirect()->route('food.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\DiabeticMedicine  $diabeticMedicine
+     * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(DiabeticMedicine $diabeticMedicine)
+    public function show(Food $food)
     {
         //
     }
@@ -61,39 +61,39 @@ class DiabeticMedicineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DiabeticMedicine  $diabeticMedicine
+     * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function edit(DiabeticMedicine $diabeticMedicine)
+    public function edit(Food $food)
     {
-        return view('dashboard.diabetic_medicine.edit',compact('diabeticMedicine'));
+         return view('dashboard.food.edit',compact('food'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DiabeticMedicine  $diabeticMedicine
+     * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DiabeticMedicine $diabeticMedicine)
+    public function update(Request $request, Food $food)
     {
-        $diabeticMedicine->update(['name'=>$request->name]);
+       $food->update(['name'=>$request->name,
+                            'type'=>$request->type,
 
-        return redirect()->route('diabetic_medicine.index');
+     ]); 
+         return redirect()->route('food.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DiabeticMedicine  $diabeticMedicine
+     * @param  \App\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DiabeticMedicine $diabeticMedicine)
+    public function destroy(Food $food)
     {
-        $diabeticMedicine->delete();
-
-        return redirect()->route('diabetic_medicine.index');
-
+        $food->delete();
+         return redirect()->route('food.index');
     }
 }

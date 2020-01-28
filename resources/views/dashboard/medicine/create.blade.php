@@ -5,7 +5,7 @@ APMRS | Create Medicine
 @endsection
 
 @section('heading')
-Adding New Heart Medicine
+Adding New  Medicine
 @endsection
 
 @section('content')
@@ -14,16 +14,28 @@ Adding New Heart Medicine
     <div class="col-md-8">
         <div class="card-box">
            
-            <form class="form-horizontal" role="form" action="{{ route('heart_medicine.store') }}" method="POST" >
+            <form class="form-horizontal" role="form" action="{{ route('medicine.store') }}" method="POST" >
             	@csrf
 
                 <div class="form-group row">
-                    <label for="name" class="col-3 col-form-label">Medicine Name</label>
+                    <label for="name" class="col-3 col-form-label"> Medicine Name </label>
                     <div class="col-9">
                         <input type="text" class="form-control" id="name" required name="name" placeholder="Enter medicine name">
                     </div>
+
                 </div>                           
                
+               <div class="form-group row">
+                    <label for="type" class="col-3 col-form-label">Medicine Type</label>
+                    <div class="col-9">
+                       <select class="custom-select mt-3 form-control" name="type" required>
+                            <option selected>Select Medicine type</option>
+                            <option value="diabetic">Diabetic Medicine</option>
+                            <option value="heart">Heart Medicine</option>
+                        </select>
+                    </div>
+                </div> 
+
                 <div class="form-group mb-0 justify-content-end row">
                     <div class="col-9">
                         <button type="submit" class="btn btn-info waves-effect waves-light">Submit</button>

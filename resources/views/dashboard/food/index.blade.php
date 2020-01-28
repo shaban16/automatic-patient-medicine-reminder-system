@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-APMRS | Diabetic Food
+APMRS |  Food
 @endsection
 
 @section('custom_css')
@@ -16,31 +16,25 @@ APMRS | Diabetic Food
 @endsection
 
 @section('heading')
-Diabetic Food
+ Food
 @endsection
 
 
 @section('content')
 
-<a class="btn btn-primary m-b-20" href="{{ route('diabetic_food.create') }}"> Add Food</a>
-
-@if(session('msg'))
-<div class="row">   
-    <div class="alert"> 
-       <p>{{session('msg')}}</p>
-    </div>
-
-</div>
-@endif
+<a class="btn btn-primary m-b-20" href="{{ route('food.create') }}"> Add Food</a>
 
 <div class="row">
             <div class="col-12">
-                <div class="card-box table-responsive">                                                 
+                <div class="card-box table-responsive">
+                                                   
+
                     <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                             <th>Food type</th>
                             <th>Options</th>
                       
                         </tr>
@@ -52,13 +46,14 @@ Diabetic Food
                               <tr>
                                  <td>{{$loop->index + 1}}</td>
                                  <td>{{$food->name}}</td>
+                                  <td>{{$food->type}}</td>
                                  <td>
-                                    <a class="btn btn-primary " href="{{ route('diabetic_food.edit',$food->id) }}">Edit</a> 
+                                    <a class="btn btn-primary " href="{{ route('food.edit',$food->id) }}">Edit</a> 
                                     <a class="btn btn-danger m-l-10" href="#"
                                        onclick="event.preventDefault();
                                                       document.getElementById('delete-form').submit();">Delete
                                      </a> 
-                                    <form id="delete-form" action="{{route('diabetic_food.destroy',$food->id)}}" method="POST">
+                                    <form id="delete-form" action="{{route('food.destroy',$food->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                     </form>

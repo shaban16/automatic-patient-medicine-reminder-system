@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\HeartFood;
+use App\medicine;
 use Illuminate\Http\Request;
 
-class HeartFoodController extends Controller
-{
-
-      public function __construct()
+class MedicineController extends Controller
+{ 
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -19,8 +18,8 @@ class HeartFoodController extends Controller
      */
     public function index()
     {
-        $foods = HeartFood::all();
-        return view('dashboard.heart_food.index',compact('foods'));
+        $medicines = Medicine::all();
+        return view('dashboard.medicine.index',compact('medicines'));
     }
 
     /**
@@ -29,9 +28,13 @@ class HeartFoodController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
-         return view('dashboard.heart_food.create');
+       return view('dashboard.medicine.create');
     }
+
+        
+    
 
     /**
      * Store a newly created resource in storage.
@@ -41,18 +44,22 @@ class HeartFoodController extends Controller
      */
     public function store(Request $request)
     {
-         HeartFood::create(['name'=>$request->name]);
+       Medicine::create([
+             'name'=>$request->name,
+             'type'=>$request->type,
+         ]);
 
-         return redirect()->route('heart_food.index');
+       return redirect()->route('medicine.index');
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\HeartFood  $heartFood
+     * @param  \App\medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function show(HeartFood $heartFood)
+    public function show(medicine $medicine)
     {
         //
     }
@@ -60,38 +67,40 @@ class HeartFoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\HeartFood  $heartFood
+     * @param  \App\medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function edit(HeartFood $heartFood)
+    public function edit(medicine $medicine)
     {
-        return view('dashboard.heart_food.edit',compact('heartFood'));
+         return view('dashboard.medicine.edit',compact('medicine'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\HeartFood  $heartFood
+     * @param  \App\medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HeartFood $heartFood)
+    public function update(Request $request, medicine $medicine)
     {
-         $heartFood->update(['name'=>$request->name]);
+         $medicine->update(['name'=>$request->name,
+                            'type'=>$request->type,
 
-        return redirect()->route('heart_food.index');
+     ]);
+
+        return redirect()->route('medicine.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\HeartFood  $heartFood
+     * @param  \App\medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HeartFood $heartFood)
+    public function destroy(medicine $medicine)
     {
-        $heartFood->delete();
-
-        return redirect()->route('heart_medicine.index');
+        $medicine->delete();
+        return redirect()->route('medicine.index');
     }
 }

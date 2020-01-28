@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 
-use App\DiabeticFood;
-use App\HeartFood;
+use App\Food;
+use App\Medicine;
 use App\PatientDetail;
 use App\Schedule;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,9 +35,11 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        $vars['patients'] = PatientDetail::all();
-        $vars['heart_foods'] = HeartFood::all();
-        $vars['diabetic_foods'] = DiabeticFood::all();
+        $vars['patient'] = PatientDetail::all();
+        $vars['medicine'] = Medicine::all();
+        $vars['food'] = Food::all();
+        
+        
         
         return view('dashboard.schedule.create',compact('vars'));
     }
@@ -46,13 +52,27 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Schedule::create([
+             'patient_name'=>$request->patient_name,
+             'mobile_no'=>$request->mobile_no,
+             'medicine_name'=>$request->medicine_name,
+             'medicine_time'=>$request->medicine_time,
+             'disease_type'=>$request->disease_type,
+             'food_restricted'=>$request->food_restricted
+         ]);
+        return redirect()->route('schedule.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Schedule  $schedule
+     * @param  \App\Schedule  $schedule Schedule::create([
+             'patient_name'=>$request->patient_name,
+             'mobile_no'=>$request->mobile_no,
+             'medicine_name'=>$request->medicine_name,
+             'medicine_time'=>$request->medicine_time,
+             'desease_type'=>$request->desease_type,
+             'food_restricted'=>$request->food_restricted]);
      * @return \Illuminate\Http\Response
      */
     public function show(Schedule $schedule)
@@ -68,7 +88,7 @@ class ScheduleController extends Controller
      */
     public function edit(Schedule $schedule)
     {
-        //
+        return view('dashboard.schedule.edit',compact('schedule'));
     }
 
     /**
@@ -80,8 +100,18 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, Schedule $schedule)
     {
-        //
-    }
+         $schedule->update([
+             'patient_name'=>$request->patient_name,
+             'mobile_no'=>$request->mobile_no,
+             'medicine_name'=>$request->medicine_name,
+             'medicine_time'=>$request->medicine_time,
+             'disease_type'=>$request->type,
+             'food_restricted'=>$request->food_restricted
+        ]);
+         
+        return redirect()->route('schedule.index');
+
+       }
 
     /**
      * Remove the specified resource from storage.
@@ -91,6 +121,7 @@ class ScheduleController extends Controller
      */
     public function destroy(Schedule $schedule)
     {
-        //
+        $schedule->delete();
+        return redirect()->route('schedule.index');
     }
 }

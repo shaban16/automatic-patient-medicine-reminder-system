@@ -18,11 +18,11 @@ Adding New Schedule
             	@csrf
 
                 <div class="form-group row">
-                    <label for="name" class="col-3 col-form-label">Patient Name</label>
+                    <label for="patient_name" class="col-3 col-form-label">Patient Name</label>
                     <div class="col-9">
-                       <select class="custom-select mt-3 form-control" name="name" required>
+                       <select class="custom-select mt-3 form-control" name="patient_name" required>
                             <option selected>Select Patient Name</option>
-                              @foreach($vars['patients'] as $patient)
+                              @foreach($vars['patient'] as $patient)
                               <option value="{{$patient->name}}">{{$patient->name}}</option>
                               @endforeach
                         </select>
@@ -34,43 +34,53 @@ Adding New Schedule
                     <div class="col-9">
                        <select class="custom-select mt-3 form-control" name="mobile_no" required>
                             <option selected>Select phone number</option>
-                              @foreach($vars['patients'] as $patient)
+                              @foreach($vars['patient'] as $patient)
                               <option value="{{$patient->phone}}">{{$patient->phone}}</option>
                               @endforeach
                         </select>
                     </div>
                 </div> 
                 <div class="form-group row">
-                    <label for="mobile_no" class="col-3 col-form-label">medicine</label>
+                    <label for="disease_type" class="col-3 col-form-label">Disease Type</label>
                     <div class="col-9">
-                       <select class="custom-select mt-3 form-control" name="mobile_no" required>
+                       <select class="custom-select mt-3 form-control" name="disease_type" required>
+                            <option selected>Select Disease type</option>
+                            <option value="diabetic">Diabetic </option>
+                            <option value="heart">Heart </option>
+                        </select>
+                    </div>
+                </div> 
+                <div class="form-group row">
+                    <label for="medicine_name" class="col-3 col-form-label">medicine</label>
+                    <div class="col-9">
+                       <select class="custom-select mt-3 form-control" name="medicine_name" required>
                             <option selected>Select Medicine</option>
-                              @foreach($vars['patients'] as $patient)
-                              <option value="{{$patient->medicine}}">{{$patient->medicine}}</option>
+                              @foreach($vars['medicine'] as $medicine)
+                              <option value="{{$medicine->name}}">{{$medicine->name}}</option>
                               @endforeach
                         </select>
                     </div>
                 </div> 
 
                 <div class="form-group row">
-                    <label for="mobile_no" class="col-3 col-form-label">Restricted Food</label>
+                    <label for="food_restricted" class="col-3 col-form-label">Restricted Food</label>
                     <div class="col-9">
-                       <select class="custom-select mt-3 form-control" name="mobile_no" required>
+                       <select class="custom-select mt-3 form-control" name="food_restricted" required>
                             <option selected>Select Restricted Food</option>
-                              @foreach($vars['patients'] as $patient)
-                              <option value="{{$patient->food}}">{{$patient->food}}</option>
+                              @foreach($vars['food'] as $food)
+                              <option value="{{$food->name}}">{{$food->name}}</option>
                               @endforeach
-                        </select>
+                     </select>
                     </div>
                 </div> 
                 <div class="form-group row">
-                    <label for="mobile_no" class="col-3 col-form-label">medicine Time</label>
+                    <label for="medicine_time" class="col-3 col-form-label">medicine Time</label>
                     <div class="col-9">
-                       <select class="custom-select mt-3 form-control" name="mobile_no" required>
-                            <option selected>Select medicine Time</option>
-                              @foreach($vars['patients'] as $patient)
-                              <option value="{{$patient->medicine}}">{{$patient->medicine}}</option>
-                              @endforeach
+                       <select class="custom-select mt-3 form-control" name="medicine_time" required>
+                            <option selected>Select Time</option>
+                            <option value="8:00 AM">Morning</option>
+                             <option value="12:00 PM">Noon</option>
+                             <option value="8:00 PM">Evening</option>
                         </select>
                     </div>
                 </div> 

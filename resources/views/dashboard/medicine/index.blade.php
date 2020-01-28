@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-APMRS | Heart Medicine
+APMRS |  Medicine
 @endsection
 
 @section('custom_css')
@@ -16,13 +16,13 @@ APMRS | Heart Medicine
 @endsection
 
 @section('heading')
-Heart Medicine
+ Medicine
 @endsection
 
 
 @section('content')
 
-<a class="btn btn-primary m-b-20" href="{{ route('heart_medicine.create') }}"> Add Medicine</a>
+<a class="btn btn-primary m-b-20" href="{{ route('medicine.create') }}"> Add Medicine</a>
 
 <div class="row">
             <div class="col-12">
@@ -34,6 +34,7 @@ Heart Medicine
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                             <th>Medicine type</th>
                             <th>Options</th>
                       
                         </tr>
@@ -45,13 +46,14 @@ Heart Medicine
                               <tr>
                                  <td>{{$loop->index + 1}}</td>
                                  <td>{{$medicine->name}}</td>
+                                  <td>{{$medicine->type}}</td>
                                  <td>
-                                    <a class="btn btn-primary " href="{{ route('heart_medicine.edit',$medicine->id) }}">Edit</a> 
+                                    <a class="btn btn-primary " href="{{ route('medicine.edit',$medicine->id) }}">Edit</a> 
                                     <a class="btn btn-danger m-l-10" href="#"
                                        onclick="event.preventDefault();
                                                       document.getElementById('delete-form').submit();">Delete
                                      </a> 
-                                    <form id="delete-form" action="{{route('heart_medicine.destroy',$medicine->id)}}" method="POST">
+                                    <form id="delete-form" action="{{route('medicine.destroy',$medicine->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                     </form>

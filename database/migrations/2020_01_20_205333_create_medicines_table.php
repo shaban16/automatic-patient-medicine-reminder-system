@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiabeticFoodsTable extends Migration
+class CreateMedicinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateDiabeticFoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('diabetic_foods', function (Blueprint $table) {
+        Schema::create('medicines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateDiabeticFoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diabetic_foods');
+        Schema::dropIfExists('medicines');
     }
 }

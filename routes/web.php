@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('/','DashboardController@index');
-
-Route::resource('/diabetic_medicine','DiabeticMedicineController');
-
-Route::resource('/diabetic_food','DiabeticFoodController');
-
-Route::resource('/heart_medicine','HeartMedicineController');
-
-Route::resource('/heart_food','HeartFoodController');
+Route::get('/','ScheduleController@index');
+Route::resource('/medicine','MedicineController');
+Route::resource('/food','FoodController');
 
 Route::resource('/patient_detail','PatientDetailController');
 
