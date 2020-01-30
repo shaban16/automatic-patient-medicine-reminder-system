@@ -89,7 +89,7 @@ class MedicineController extends Controller
 
      ]);
 
-        return redirect()->route('medicine.index');
+             return redirect()->route('medicine.index');
     }
 
     /**
