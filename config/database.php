@@ -2,11 +2,6 @@
 
 use Illuminate\Support\Str;
 
-
-
-$DATABASE_URL=parse_url(
-'  postgres://xgvoatzlkagytz:da78ddb1654238dfc33ab2eaac1a200863799b9407f86075c0fbf9afef7ea122@ec2-54-225-95-183.compute-1.amazonaws.com:5432/d3e75menhhha60
-');
 return [
 
     /*
@@ -20,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,9 +45,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            //'url' => env('DATABASE_URL'),
+            //'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'auto-medicine from_db4free'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
