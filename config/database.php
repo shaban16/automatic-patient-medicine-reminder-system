@@ -45,12 +45,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            //'url' => env('DATABASE_URL'),
-            //'host' => env('DB_HOST', '127.0.0.1'),
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'auto-medicine'),
-            //'database' => env('DB_DATABASE', 'forge'),
+            'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'shabani'),
             'password' => env('DB_PASSWORD', 'musamkai'),
             'unix_socket' => env('DB_SOCKET', ''),
